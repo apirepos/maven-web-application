@@ -98,13 +98,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Release</name>
-	      <url>http://74.235.208.45:8081/repository/wallmart-release/</url>
+	      <url>http://13.206.110.251:8081/repository/facebook-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Snapshot</name>
-	      <url>http://74.235.208.45:8081/repository/wallmart-snapshot/</url>
+	      <url>http://13.206.110.251:8081/repository/facebook-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
