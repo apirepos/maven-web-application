@@ -1,0 +1,18 @@
+node{
+    def mavenHome = tool name: "maven3.9.16"
+    stage('checkoutcode'){
+        git branch: 'development', url: 'https://github.com/apirepos/maven-web-application.git'
+    }
+    stage('build'){
+         sh "$mavenHome/bin/mvn clean package"   
+        
+    }
+    stage('artifact'){
+        sh"$mavenHome/bin/mvn deploy"
+    }
+    stage('tomcat'){
+        sshagent(credentials: ['1e89fcdb-04e8-4933-a64f-f25f9fc3a2c0'], executable: '') {
+            sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@3.108.228.166:/opt/apache-tomcat-11.0.24/webapps"      
+    }
+    }
+}
